@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camping Albania</title>
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css"> <!-- https://fontawesome.com/ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
+    <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="../static/css/tooplate-wave-cafe.css" />
+    <link href="../static/css/style1.css" rel="stylesheet" />
+    <!--
+https://www.tooplate.com/view/2121
+-->
+</head>
+
+<body class="sub_page">
+    <div class="hero_area_camping">
+        <div class="tm-container">
+            <div class="tm-row">
+                <!-- Site Header -->
+                <div class="tm-left">
+                    <div class="tm-left-inner">
+                        <a class="navbar-brand pb-2 bg-light bg-opacity-50" href="/bloggs"><span>Welcome {{loggeduser.username}}</span></a>
+                        <div class="tm-site-header">
+                            <i class="fas fa-atlas fa-3x tm-site-logo"></i>
+                            <h1 class="tm-site-name">Blogg ALBANIA</h1>
+                        </div>
+                        <nav class="tm-site-nav">
+                            <ul class="tm-site-nav-ul">
+                                <li class="tm-page-nav-item">
+                                    <a href="/books" class="tm-page-link active">
+                                        <i class="fas fa-address-book tm-page-link-icon"></i>
+                                        <span>Books</span>
+                                    </a>
+                                </li>
+                                <li class="tm-page-nav-item">
+                                    <a href="/about" class="tm-page-link">
+                                        <i class="fas fa-users tm-page-link-icon"></i>
+                                        <span>About Us</span>
+                                    </a>
+                                </li>
+                                <li class="tm-page-nav-item">
+                                    <a href="/emergency" class="tm-page-link">
+                                        <i class="fas fa-ambulance tm-page-link-icon"></i>
+                                        <span>Emergency</span>
+                                    </a>
+                                </li>
+                                <li class="tm-page-nav-item">
+                                    <a href="/contact" class="tm-page-link">
+                                        <i class="fas fa-comments tm-page-link-icon"></i>
+                                        <span>Contact</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="tm-right">
+                    <main class="tm-main">
+                        <div id="drink" class="tm-page-content">
+                            <!-- Menu Page -->
+                            <nav class="tm-black-bg tm-drinks-nav">
+                                <ul>
+                                    <li>
+                                        <a href="/bloggs" class="tm-tab-link active" data-id="cold">HOME</a>
+                                    </li>
+                                    <li>
+                                        <a href="/bloggs/new" class="tm-tab-link" data-id="hot">ADD BLOGG</a>
+                                    </li>
+                                    <li>
+                                        <a href="/logout" class="tm-tab-link" data-id="juice">Logout</a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div id="cold" class="tm-tab-content">
+                                <div class="tm-list">
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">Description<span
+                                                    class="tm-list-item-price">...</span></h3>
+                                            <p class="tm-list-item-description">{{blogg.description}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <img src="../static/UPLOAD_FOLDER/{{blogg.image}}" alt="" width="200"
+                                            height="150">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">File<span
+                                                    class="tm-list-item-price">...</span>
+                                            </h3>
+                                            <p class="tm-list-item-description">Here is your picture</p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">Location<span
+                                                    class="tm-list-item-price">...</span></h3>
+                                            <p class="tm-list-item-description">{{blogg.location}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">Last Update<span
+                                                    class="tm-list-item-price">...</span></h3>
+                                            <p class="tm-list-item-description">{{blogg.updated_at}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">Created<span
+                                                    class="tm-list-item-price">...</span>
+                                            </h3>
+                                            <p class="tm-list-item-description">{{blogg.created_at}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <h3 class="tm-list-item-name">Email<span
+                                                    class="tm-list-item-price">...</span>
+                                            </h3>
+                                            <p class="tm-list-item-description"><a
+                                                    href="/profile/{{blogg.user_id}}">{{blogg.email}}</a></p>
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            {% if loggeduser.id == blogg.user_id%}
+                                            <h3 class="tm-list-item-name">Actions<span
+                                                    class="tm-list-item-price">...</span>
+                                            </h3>
+                                            {%endif%}
+                                            {% if loggeduser.id == blogg.user_id%}
+                                            <a class="btn btn-primary" href="/blogg/edit/{{blogg.id}}">Edit</a>
+                                            <a class="btn btn-danger" href="/delete/blogg/{{blogg.id}}">Delete
+                                                Blogg</a>
+                                            {%endif%}
+                                        </div>
+                                    </div>
+                                    <div class="tm-list-item">
+                                        <div class="tm-black-bg tm-list-item-text">
+                                            <table class="table table-success w-50">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Description</th>
+                                                        <th scope="col">Likes</th>
+                                                        <th scope="col">Interact</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="w-50">{{blogg.description}}</td>
+                                                        <td class="w-50">{{numOfLikes}}</td>
+                                                        <td>
+                                                            {% if loggeduser.id in usersWhoLiked %}
+                                                            <a class="btn btn-warning"
+                                                                href="/unlike/{{blogg.id}}">Dislike</a>
+                                                            {% else %}
+                                                            <a class="btn btn-primary"
+                                                                href="/like/{{blogg.id}}">Like</a>
+                                                            {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            </main>
+        </div>
+
+        <footer class="tm-site-footer">
+            <p class="tm-black-bg tm-footer-text">Copyright 2020 BLOGG ALBANIA
+
+                | Design: <a href="https://www.tooplate.com" class="tm-footer-link" rel="sponsored"
+                    target="_parent">Ernest-Jenifer-Artiol</a></p>
+        </footer>
+    </div>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</body>
+
+</html>
