@@ -12,7 +12,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Blogg Albania</title>
+    <title>Blogg</title>
 
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css"
@@ -35,6 +35,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+
+    <style>
+        .tm-site-head {
+            background-color: #6bd0bd; /* Choose your desired background color */
+            padding: 10px; /* Optional: Add padding for better spacing */
+        }
+
+        .color-me {
+            background-color: #09705d;
+        }
+    </style>
 </head>
 
 <body class="sub_page">
@@ -54,7 +65,7 @@
                         <div class="d-flex ml-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="/bloggs">HOME <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item active">
                                     <a class="nav-link" href="/bloggs/new"> ADD BLOGG </a>
@@ -63,7 +74,7 @@
                             </ul>
                             <div class="user_option">
                                 <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 </form>
                             </div>
                             <a class="nav-link" href="/logout">Logout</a>
@@ -74,18 +85,18 @@
     </header>
     <!-- end header section -->
 
-    <section class="contact_section ">
+    <section class="contact_section tm-site-head">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-lg-5 col-md-6">
-                    <h1 class="text-center mt-3">Build Your Blogg</h1>
-                    <div style="height: 400px; overflow-y: auto;">
+                <div class="col-lg-11 col-md-6">
+                    <h1 class="text-center mt-3">Publish your passions, your way</h1>
+                    <h4 class="text-center mt-3">Create a unique and beautiful blog easily</h4>
+                    <div style="height: 500px; overflow-y: auto;">
                         <table class="table table-success table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Description:</th>
                                     <th scope="col">Video/Image:</th>
-                                    <th scope="col">Location:</th>
                                     <th scope="col">Actions:</th>
                                 </tr>
                             </thead>
@@ -96,7 +107,6 @@
                                     <td>{{blogg.description}}</td>
                                     <td><img src="../static/UPLOAD_FOLDER/{{blogg.image}}" alt="" width="200"
                                             height="150"></td>
-                                    <td>{{blogg.location}}</td>
                                     <td>
                                         <a class="btn btn-secondary px-3" href="/blogg/{{blogg.id}}">View</a>
                                         {% if loggeduser.id == blogg.user_id %}
@@ -147,7 +157,7 @@
     </section>
 
     <!-- info section -->
-    <section class="info_section layout_padding2">
+    <section class="info_section layout_padding2 mt-1">
         <div class="container">
             <div class="info_items">
                 <a href="">
@@ -200,6 +210,10 @@
         </p>
     </footer>
     <!-- footer section -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

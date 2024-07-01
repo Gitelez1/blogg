@@ -71,6 +71,11 @@ h6 {
      margin: 0
 }
 
+.tm-site-head {
+     background-color: #6bd0bd; /* Choose your desired background color */
+     padding: 10px; /* Optional: Add padding for better spacing */
+}
+
 h1 {
      font-size: 24px;
      font-family: 'Righteous', cursive;

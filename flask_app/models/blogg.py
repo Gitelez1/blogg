@@ -8,7 +8,6 @@ class Blogg:
         self.id = data["id"]
         self.description = data["description"]
         self.image = data["image"]
-        self.location = data["location"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
         self.user_id = data["user_id"]
@@ -25,12 +24,12 @@ class Blogg:
 
     @classmethod
     def create(cls, data):
-        query = "INSERT INTO bloggs (description, image, location, user_id) VALUES (%(description)s, %(image)s,%(location)s,%(user_id)s)"
+        query = "INSERT INTO bloggs (description, image, user_id) VALUES (%(description)s, %(image)s,%(user_id)s)"
         return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod
     def update_blogg(cls, data):
-        query = "UPDATE bloggs SET description=%(description)s, location = %(location)s  WHERE id = %(blogg_id)s;"
+        query = "UPDATE bloggs SET description=%(description)s WHERE id = %(blogg_id)s;"
         return connectToMySQL(cls.db_name).query_db(query, data)
 
     @classmethod
@@ -81,9 +80,6 @@ class Blogg:
         is_valid = True
         if len(data["description"]) < 3:
             flash("Description be at least 3 characters!", "description")
-            is_valid = False
-        if not data["location"]:
-            flash("Location is required!", "location")
             is_valid = False
         return is_valid
 

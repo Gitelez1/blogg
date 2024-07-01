@@ -59,6 +59,19 @@ body {
             transform: translateX(-50%);
 }
 
+.image {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+}
+.tm-site-head {
+    background-color: #6bd0bd; /* Choose your desired background color */
+    padding: 10px; /* Optional: Add padding for better spacing */
+}
+
 /*header section*/
 .hero_area {
     height: 100vh;

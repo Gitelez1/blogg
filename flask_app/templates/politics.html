@@ -14,67 +14,49 @@
         crossorigin="anonymous"></script>
     <style>
         .bacground_color {
-            background-color: #6bd0bd;
+            background-color: #27223f;
         }
     </style>
 </head>
 
-<body class="sub_page bacground_color">
-    <!-- header section strats -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<body>
+    <header class="header_section">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/bloggs">Welcome {{loggeduser.username}}</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="/bloggs">DASHBOARD</a>
-                    <a class="nav-link active" aria-current="page" href="/bloggs/new">ADD BLOGG</a>
-                    <a class="nav-link" href="/logout">Logout</a>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/bloggs">Welcome {{loggeduser.username}}</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            <a class="nav-link active" aria-current="page" href="/bloggs">DASHBOARD</a>
+                            <a class="nav-link active" aria-current="page" href="/bloggs/new">ADD BLOGG</a>
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </div>
+                    </div>
+                    <div class="user_option">
+                        <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                            <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="user_option">
-                <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
-                    <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                </form>
-            </div>
+            </nav>
         </div>
-    </nav>
-    <!-- end header section -->
-    <h1 class="text-center mt-3 text-primary">Create your blog</h1>
-    <form class="w-50 m-auto bg-light bg-opacity-50 p-3 mt-3" action="/add/blogg" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-            <label for="description" class="form-label">Description:</label>
-            <input type="text" class="form-control" name="description" id="description">
-        </div>
-        {% with messages = get_flashed_messages(category_filter=["description"]) %}
-        {% if messages %}
-
-        {% for message in messages %}
-            <p class="text-danger text-center">{{message}}</p>
-        {%endfor%}
-        {%endif%}
-        {%endwith%}
-        <div class="mb-3">
-            <label class="form-label" for="image">File:</label>
-            <input type="file" required multiple class="form-control" id="image" name="image"
-                accept="image/png, image/jpg, image/jpeg">
-        </div>
-        {% with messages = get_flashed_messages(category_filter=["image"]) %}
-        {% if messages %}
-
-        {% for message in messages %}
-            <p class="text-danger text-center">{{message}}</p>
-        {%endfor%}
-        {%endif%}
-        {%endwith%}
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </header>
+    <h1 class="text-center mt-5">Politics</h1>
+    <img class="image" src="../static/images/politics.jpg" alt="#">
+    <p class="text-center mt-5">Komisioni i Ankimimeve dhe Sanksioneve shqyrtoi kërkesën nr. 2, të Komisioneri Shtetëror
+        të Zgjedhjeve për vendosjen e sanksioneve administrative për anëtarët e grupeve të numërimit, në zbatim të
+        vendimit nr. 48, datë 16.05.2024, “Për miratimin e raportit mbi gjetjet kyçe të procesit të këqyrjes
+        paszgjedhore të fletëve të votimit, materialit zgjedhor dhe pajisjeve të votimit dhe numërimit elektronik (PEVN)
+        të përdorura në zgjedhjet për organet e qeverisjes vendore, të datës 14 Maj 2023 dhe për zgjedhjet për Kryetar
+        të Bashkisë Kukës, të datës 24.09.2023”.</p>
 
     <!-- info section -->
-    <section class="info_section layout_padding2 mt-5">
+    <section class="info_section layout_padding2">
         <div class="container">
             <div class="info_items">
                 <a href="">
@@ -128,7 +110,8 @@
     </footer>
     <!-- footer section -->
 
-
+    <!-- Optional: Link to JavaScript file -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

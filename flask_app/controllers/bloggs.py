@@ -25,37 +25,77 @@ def addBlogg():
     return render_template("addBlogg.html", loggeduser=loggeduser)
 
 
-@app.route("/books")
-def Books():
+@app.route("/marketing")
+def Marketing():
     if "user_id" not in session:
         return redirect("/")
     data = {"id": session["user_id"]}
     loggeduser = User.get_user_by_id(data)
-    return render_template("books.html", loggeduser=loggeduser)
+    return render_template("marketing.html", loggeduser=loggeduser)
 
 @app.route("/about")
 def aboutAs():
-    if "user_id" not in session:
-        return redirect("/")
-    data = {"id": session["user_id"]}
-    loggeduser = User.get_user_by_id(data)
-    return render_template("about.html", loggeduser=loggeduser)
+    return render_template("about.html")
 
-@app.route("/emergency")
-def emergency():
+@app.route("/news")
+def news():
     if "user_id" not in session:
         return redirect("/")
     data = {"id": session["user_id"]}
     loggeduser = User.get_user_by_id(data)
-    return render_template("emergency.html", loggeduser=loggeduser)
+    return render_template("news.html", loggeduser=loggeduser)
 
 @app.route("/contact")
 def contact():
+    return render_template("contact.html")
+
+@app.route("/politics")
+def politics():
     if "user_id" not in session:
         return redirect("/")
     data = {"id": session["user_id"]}
     loggeduser = User.get_user_by_id(data)
-    return render_template("contact.html", loggeduser=loggeduser)
+    return render_template("politics.html", loggeduser=loggeduser)
+
+@app.route("/art")
+def art():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {"id": session["user_id"]}
+    loggeduser = User.get_user_by_id(data)
+    return render_template("art.html", loggeduser=loggeduser)
+
+@app.route("/health")
+def health():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {"id": session["user_id"]}
+    loggeduser = User.get_user_by_id(data)
+    return render_template("health.html", loggeduser=loggeduser)
+
+@app.route("/sport")
+def sport():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {"id": session["user_id"]}
+    loggeduser = User.get_user_by_id(data)
+    return render_template("sport.html", loggeduser=loggeduser)
+
+@app.route("/recipe")
+def recipe():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {"id": session["user_id"]}
+    loggeduser = User.get_user_by_id(data)
+    return render_template("recipe.html", loggeduser=loggeduser)
+
+@app.route("/travel")
+def travel():
+    if "user_id" not in session:
+        return redirect("/")
+    data = {"id": session["user_id"]}
+    loggeduser = User.get_user_by_id(data)
+    return render_template("travel.html", loggeduser=loggeduser)
 
 
 @app.route("/add/blogg", methods=["POST"])
@@ -80,7 +120,6 @@ def createBlogg():
     data = {
         "description": request.form["description"],
         "image": filename1,
-        "location": request.form["location"],
         'user_id': session['user_id']
     }
     Blogg.create(data)
@@ -138,13 +177,11 @@ def updateBlogg(id):
         return redirect('/')
     if (
         len(request.form["description"]) < 1
-        or len(request.form["location"]) < 1
     ):
         flash("All fields required", "allRequired")
         return redirect(request.referrer)
     updateData={
         'description': request.form['description'],
-        'location': request.form['location'],
         'blogg_id':id
     }
     Blogg.update_blogg(updateData)
